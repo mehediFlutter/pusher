@@ -23,24 +23,23 @@ class _HomeScreen extends State<HomeScreen> {
       builder: (controller) {
         return Scaffold(
           body: Center(
-            child: Column(
-              children: [
-                Center(
-                  child: Text(
-                    '${controller.messages.length}',
-                    style: TextStyle(fontSize: 40),
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  SizedBox(height: 100),
+                  Center(child: Text('Pusher', style: TextStyle(fontSize: 40))),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: controller.messages.length,
+                      itemBuilder: (context, index) {
+                        final item = controller.messages[index];
+                        return Text(item, style: TextStyle(fontSize: 20));
+                      },
+                    ),
                   ),
-                ),
-                // Expanded(
-                //   child: ListView.builder(
-                //     itemCount: controller.messages.length,
-                //     itemBuilder: (context, index) {
-                //       final item = controller.messages[index];
-                //       return Text(item.message, style: TextStyle(fontSize: 20));
-                //     },
-                //   ),
-                // ),
-              ],
+                ],
+              ),
             ),
           ),
         );

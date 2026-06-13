@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pusher_p/home_screen.dart';
+import 'package:pusher_p/push_manager.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  PusherManager().initPusher();
   runApp(const MyApp());
 }
 
